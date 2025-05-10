@@ -47,11 +47,16 @@ const userSchema = new mongoose.Schema(
           postId: String,
           source: String,
           title: String,
+          text: String,
           url: String,
           date: Date,
         },
       ],
       default: [],
+    },
+    loginStreak: {
+      type: Number,
+      default: 1,
     },
     sharedFeeds: {
       type: [
