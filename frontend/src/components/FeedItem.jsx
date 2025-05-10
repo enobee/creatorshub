@@ -4,6 +4,7 @@ import { Bookmark, Share2, AlertCircle } from "lucide-react";
 export default function FeedItem({ post, isSaved, onSave, onShare, onReport }) {
   return (
     <div className="bg-white p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+      {/* Header */}
       <div className="flex items-center mb-3">
         <div className="h-8 w-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-semibold mr-3">
           {post.source.charAt(0).toUpperCase()}
@@ -13,11 +14,12 @@ export default function FeedItem({ post, isSaved, onSave, onShare, onReport }) {
         </span>
       </div>
 
+      {/* Title/Text */}
       <h3 className="text-lg sm:text-xl font-semibold mb-2 text-gray-800 truncate">
         {post.title || post.text}
       </h3>
 
-      {/* Image Preview */}
+      {/* Image Preview (increased height) */}
       {post.url && post.url.match(/\.(jpeg|jpg|gif|png)$/) && (
         <div className="w-full h-56 sm:h-64 mb-4 overflow-hidden rounded-lg">
           <img
@@ -28,6 +30,7 @@ export default function FeedItem({ post, isSaved, onSave, onShare, onReport }) {
         </div>
       )}
 
+      {/* Body Text */}
       {post.text && (
         <p className="text-gray-700 text-sm sm:text-base mb-4 line-clamp-3">
           {post.text}
@@ -37,7 +40,6 @@ export default function FeedItem({ post, isSaved, onSave, onShare, onReport }) {
       {/* Actions */}
       <div className="flex flex-wrap items-center gap-4 pt-2 border-t border-gray-100">
         {isSaved ? (
-          // Only the Share button is shown in saved content
           <button
             onClick={onShare}
             className="flex items-center gap-1 text-gray-600 hover:text-indigo-600"
